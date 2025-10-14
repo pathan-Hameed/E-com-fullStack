@@ -2,6 +2,7 @@ import React, { useContext, useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { ShopContext } from "../context/ShopContext";
 import { assets } from "../assets/assets";
+import RelatedProducts from "../components/RelatedProducts";
 
 function Products() {
   const { productId } = useParams();
@@ -28,9 +29,9 @@ function Products() {
 
   return productData ? (
     <div className="border-t-2 pt-10 transition-opacity ease-in duration-500 opacity-100">
-      {/* Product Data  */}
+      {/* ------------Product Data----------------  */}
       <div className="flex gap-12 sm:gap-12 flex-col sm:flex-row">
-        {/* Product images  */}
+        {/* --------------------Product images----------------  */}
         <div className="flex flex-col-reverse sm:flex-row gap-3 w-full sm:w-[50%]">
           <div className="flex sm:flex-col justify-between sm:justify-normal overflow-x-auto sm:overflow-y-scroll sm:w-[18.7%] w-full">
             {productData.image.map((item, index) => (
@@ -48,7 +49,7 @@ function Products() {
           </div>
         </div>
 
-        {/* product information */}
+        {/* ---------------------product information-------------------- */}
         <div className="flex-1">
           <h1 className="font-medium text-2xl mt-2">{productData.name}</h1>
           <div className="flex gap-1 mt-2 items-center">
@@ -81,6 +82,27 @@ function Products() {
           </div>
         </div>
       </div>
+
+      {/* ------------------Description & Reviews-------------------- */}
+      <div className="mt-20">
+        <div className="flex">
+          <b className="border cursor-pointer px-5 py-3">Description</b>
+          <p className="border cursor-pointer px-5 py-3">Reviews</p>
+        </div>
+        <div className="flex flex-col gap-4 text-sm text-gray-500 border px-6 py-6">
+          <p>An e-commerce website is an online platform that facilitates the buying and selling dolor sit amet consectetur adipisicing elit. Iure itaque temporibus ab vero, eos dolorem. Exercitationem, culpa officia! Perferendis inventore vitae, quam debitis laboriosam, veritatis </p>
+          <p>An e-commerce website is an online platform that facilitates the buying and selling dolor sit amet consectetur adipisicing elit. Iure itaque temporibus ab vero, eos dolorem. Exercitationem, culpa officia! Perferendis inventore vitae, quam debitis laboriosam, veritatis </p>
+        </div>
+      </div>
+
+      {/* ---------------------related products-------------------------- */}
+      <RelatedProducts category = {productData.category} subCategory = {productData.subCategory}/>
+        {/* <div className="flex flex-col mt-5 justify-center">
+          <h2 className="mb-3">Related Products</h2>
+          <div className="flex items-center gap-2">
+              
+          </div>
+        </div> */}
     </div>
   ) : (
     <div className="opacity-0"></div>
