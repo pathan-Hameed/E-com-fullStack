@@ -6,7 +6,7 @@ import RelatedProducts from "../components/RelatedProducts";
 
 function Products() {
   const { productId } = useParams();
-  const { products, currency} = useContext(ShopContext);
+  const { products, currency, addToCart} = useContext(ShopContext);
   const [productData, setProductData] = useState(false);
   const [image, setImage] = useState("");
   const [size, setSize] = useState("");
@@ -16,7 +16,6 @@ function Products() {
       if (item._id === productId) {
         setProductData(item);
         setImage(item.image[0]);
-        console.log(item);
 
         return null;
       }
@@ -73,7 +72,7 @@ function Products() {
               }
             </div>
           </div>
-          <button className="bg-black py-3 px-8 text-white rounded mt-5 text-sm active:bg-gray-700">ADD TO CART</button>
+          <button onClick={()=>addToCart(productData._id, size)} className="bg-black py-3 px-8 text-white rounded mt-5 text-sm active:bg-gray-700">ADD TO CART</button>
           <hr className="mt-8 sm:w-4/5"/>
           <div className="flex flex-col gap-1 mt-5 text-sm text-gray-500">
             <p>100% Original Product</p>
@@ -97,12 +96,7 @@ function Products() {
 
       {/* ---------------------related products-------------------------- */}
       <RelatedProducts category = {productData.category} subCategory = {productData.subCategory}/>
-        {/* <div className="flex flex-col mt-5 justify-center">
-          <h2 className="mb-3">Related Products</h2>
-          <div className="flex items-center gap-2">
-              
-          </div>
-        </div> */}
+      
     </div>
   ) : (
     <div className="opacity-0"></div>

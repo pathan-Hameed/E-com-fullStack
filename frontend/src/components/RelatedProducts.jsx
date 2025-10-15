@@ -22,7 +22,7 @@ const RelatedProducts = ({category, subCategory}) => {
 
   return (
     <div className="mt-24">
-      <div className="text-left text-3xl py-4">
+      <div className="text-3xl py-4">
         <Title text1={"Related"} text2={"Products"} />
       </div>
 
