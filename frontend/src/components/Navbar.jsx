@@ -9,7 +9,7 @@ function Navbar() {
   const {setShowSearch, getCartCount} = useContext(ShopContext);
 
   return (
-    <div className="flex items-center justify-between py-5  font-medium">
+    <div className="flex items-center justify-between py-5 font-medium">
       <Link to={'/'} className="cursor-pointer">
       <img src={assets.logo} className="w-36 " alt="logo" />
       </Link>
@@ -42,11 +42,11 @@ function Navbar() {
         />
 
         <div className="group relative">
-          <img
+          <Link to='/login'><img
             className="w-5 cursor-pointer"
             src={assets.profile_icon}
             alt="profile-icon"
-          />
+          /></Link>
           <div className="group-hover:block hidden absolute dropdown-menu right-0 pt-4">
             <div className="bg-slate-100 rounded w-32 flex flex-col gap-2 text-gray-500 px-5 py-3">
               <p className="cursor-pointer hover:text-black">My Profile</p>
