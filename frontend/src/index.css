@@ -7,7 +7,7 @@ a.active hr {
 }
 
 * {
-    font-family: outfit;
+    font-family: outfit, cinzel;
 }
 
 ::-webkit-scrollbar {
